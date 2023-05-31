@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Game - Facundo Sanchez</title>
+    <link rel="stylesheet" type="text/css" href="css/fondo.css" />
+    <link rel="stylesheet" type="text/css" href="css/personaje.css" />
+    <link rel="stylesheet" type="text/css" href="css/bonus.css" />
+  </head>
+  <body>
+    <div class="timer">
+      <p><span id="seconds">0</span> Segundos</p>
+    </div>
+    <div class="coins">
+      <p>x<span id="coins">0</span></p>
+    </div>
+
+    <div class="background_container">
+      <div class="fondo-2 animation7"></div>
+      <div class="fondo-5 animation12"></div>
+      <div class="fondo-6 animation15"></div>
+    </div>
+
+    <div class="menu">
+      <button id="play">Jugar</button>
+      <button id="guide">Guia</button>
+    </div>
+    <div class="guide d-none">
+      <div class="container-guide">
+        <div class="container-items">
+          <div class="image-guide-zombie">
+            <img src="./img/zombie/male/attacks.png" alt="zombie-male" />
+          </div>
+          <div>
+            <p>Si impactas con este zombie te saca 10 segundos!</p>
+          </div>
+        </div>
+
+        <div class="container-items">
+          <div class="image-guide-zombie">
+            <img src="./img/zombie/female/attacks.png" alt="zombie-female" />
+          </div>
+          <div><p>Si impactas con este zombie vas a perder el juego!</p></div>
+        </div>
+
+        <div class="container-items">
+          <div class="image-guide coins-image">
+            <img src="./img/objects/coins.png" alt="coins" />
+          </div>
+          <div>
+            <p>Si impactas con este elemento vas a recibir una moneda!</p>
+          </div>
+        </div>
+
+        <div class="container-items">
+          <div class="image-guide reloj-image">
+            <img src="./img/objects/reloj.png" alt="reloj" />
+          </div>
+          <div>
+            <p>Si impactas con este Bonus vas a recibir 15 segundos</p>
+          </div>
+        </div>
+        <div class="guide-btn">
+          <button id="btn-guideOk">Ok!</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="classes/Bonus.js"></script>
+    <script src="classes/Enemigo.js"></script>
+    <script src="classes/Personaje.js"></script>
+    <script src="classes/Game.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

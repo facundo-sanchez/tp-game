@@ -1,0 +1,155 @@
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+#personaje,
+.enemigo {
+  position: absolute;
+  width: 117px;
+  height: 141px;
+  bottom: 4em;
+  z-index: 100;
+  left: 30vh;
+  border: 1px solid black;
+}
+
+/*
+  Enemigo
+*/
+.enemigo {
+  position: absolute;
+  left: 1vh;
+  z-index: 101;
+}
+
+.male {
+  width: 86px;
+  height: 104px;
+  background: url("../img/zombie/male/walk.png") repeat-x;
+}
+
+.female {
+  width: 105px;
+  height: 115px;
+  background: url("../img/zombie/female/walk.png") repeat-x;
+}
+
+/*
+  Eventos
+*/
+
+.damage {
+  background: url("../img/pj/damage.png");
+  width: 124px !important;
+  height: 150px !important;
+}
+
+.correr {
+  background: url("../img/pj/walk.png") repeat-x;
+  animation: correr 1.2s steps(10) infinite;
+}
+
+.walkEnemigoMale {
+  animation: enemigo 17s forwards infinite, enemigoMale 1s steps(10) infinite;
+}
+
+.walkEnemigoFemale {
+  animation: enemigo 17s forwards infinite, enemigoFemale 1s steps(10) infinite;
+}
+
+.saltar {
+  animation: saltar 400ms linear forwards;
+}
+
+.saltar {
+  width: 114px !important;
+  background: url("../img/pj/jump.png") repeat-x;
+  animation: saltar 1s steps(10) normal;
+}
+
+.dead {
+  background: url("../img/pj/dead.png");
+  width: 188px !important;
+  animation: dead 1.2s steps(10) normal;
+}
+.deadFinish {
+  width: 150px !important;
+  background: url("../img/pj/deadFinish.png");
+}
+
+/*
+  Animaciones
+*/
+
+@keyframes dead {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: -1888px;
+  }
+}
+
+@keyframes correr {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: -1174px;
+  }
+}
+
+@keyframes enemigo {
+  from {
+    left: 90%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes enemigoMale {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 860px;
+  }
+}
+
+@keyframes enemigoFemale {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: 1042px;
+  }
+}
+
+@keyframes saltar {
+  0% {
+    bottom: 8em;
+  }
+  50% {
+    bottom: 20em;
+  }
+  100% {
+    background-position: -1174px;
+    bottom: 6em;
+  }
+}
+
+@keyframes caer {
+  from {
+    bottom: 20em;
+  }
+
+  to {
+    bottom: 4em;
+  }
+}

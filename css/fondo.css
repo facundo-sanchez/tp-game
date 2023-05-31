@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 200;
+  width: 300px;
+  background-color: #fff;
+  height: 200px;
+  top: 30%;
+  left: 40%;
+  right: 40%;
+  border-radius: 5px;
+  border: 1px solid rgb(192, 192, 192);
+}
+.menu button,.guide-btn button {
+  font-size: 20px;
+  width: 150px;
+  height: 30px;
+  border: none;
+  outline: none;
+  background-color: #4e4e4e;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.menu button:hover,.guide-btn button:hover{
+  background-color: #707070;
+}
+
+.guide {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  top: 4vh;
+  left: 30%;
+  right: 30%;
+  z-index: 201;
+  background-color: #fff;
+  border: 1px solid rgb(192, 192, 192);
+  border-radius: 5px;
+}
+.container-guide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2em;
+  z-index: 300;
+  margin-bottom: 1em;
+}
+.container-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.image-guide,
+.image-guide-zombie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+}
+
+.image-guide-zombie img {
+  width: 100px;
+  height: 100px;
+}
+
+.image-guide img {
+  width: 60px;
+  height: 60px;
+}
+
+.coins-image img {
+  margin-left: 2.5em;
+}
+.reloj-image {
+  margin-left: 1.5em;
+}
+.guide-btn{
+  text-align: center;
+  
+}
+.fondo-0,
+.fondo-1,
+.fondo-2,
+.fondo-3,
+.fondo-4,
+.fondo-5,
+.fondo-6 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.background_container {
+  height: 100%;
+  /* overflow-y: hidden;
+  overflow-x: hidden; */
+  z-index: 0;
+}
+
+.animation7 {
+  animation: movement 7s linear infinite;
+}
+.animation12 {
+  animation: movement 12s linear infinite;
+}
+.animation15 {
+  animation: movement 15s linear infinite;
+}
+
+.fondo-2 {
+  background: url("../img/fondo/2.png") repeat-x;
+  background-size: 1000px 100%;
+  bottom: 0px;
+  z-index: 1;
+}
+
+.fondo-5 {
+  background: url("../img/fondo/4.png") repeat-x;
+  background-size: 1000px 100%;
+  bottom: 0px;
+  z-index: -2;
+}
+
+.fondo-6 {
+  background: url("../img/fondo/6.png") repeat-x;
+  background-size: 1000px 100%;
+  top: 0px;
+  z-index: -3;
+}
+
+@keyframes movement {
+  0% {
+    background-position: 1000px;
+  }
+
+  100% {
+    background-position: 0;
+  }
+}
