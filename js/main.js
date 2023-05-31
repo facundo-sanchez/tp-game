@@ -30,6 +30,11 @@ window.addEventListener('DOMContentLoaded', async () => {
   })
 })
 
+/* Esta funcion se va llamar recursivamente y va verificar el estado del juego.
+  la condicion de corte va ser si el game.getGame es falso. si es falso es porque el usuario
+  perdio en el juego
+  Esta funcion va verificar la colision y la eliminacion de elementos del body
+*/
 function gameLoop() {
   if (game.getGame()) {
     game.deleteElements();

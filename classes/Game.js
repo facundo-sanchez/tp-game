@@ -15,6 +15,7 @@ class Games {
     this.history = []
   }
 
+  // Inicializamos el juego
   start() {
     this.game = true;
     this.seconds = 60;
@@ -41,7 +42,7 @@ class Games {
       new Bonus('coin')
     }, 15000);
   }
-
+  // Detenemos el juego (Tiempo y generador de enemigos/bonus)
   stopGame() {
     setTimeout(() => {
       this.deleteElementsAll()
@@ -51,6 +52,7 @@ class Games {
     clearInterval(this.generateCoinId)
   }
 
+  // Cronometro
   startTimer() {
     this.timerInterval = setInterval(() => {
       this.seconds--;
@@ -70,6 +72,10 @@ class Games {
     return time < 10 ? `0${time}` : time;
   }
 
+  /**
+   * Detenemos el juego.
+   * Se van a detener las animaciones y se va ejecutar la funcion stopGame
+   */
   stopGameLoop() {
     menuAudio.pause();
     this.pj.dead();
@@ -79,7 +85,7 @@ class Games {
     this.history.push({ coins: this.coins, seconds: this.seconds })
     console.log(this.history)
     this.removeAnimation(document.querySelector('.animation7'))
-    this.removeAnimation( document.querySelector('.animation12'))
+    this.removeAnimation(document.querySelector('.animation12'))
     this.removeAnimation(document.querySelector('.animation15'))
     setTimeout(() => {
       document.querySelector('.menu').classList.remove('d-none')
@@ -94,17 +100,21 @@ class Games {
     e.setAttribute('style', 'animation:none !important')
   }
 
-  isCollision(pj, enemy,n) { return pj.right - n > enemy.left + n && pj.bottom > enemy.top && enemy.right - n > pj.left + n && enemy.bottom > pj.top }
+
+  // Verificamos si chocamos un obstaculo
+  isCollision(pj, enemy, n) { return pj.right - n > enemy.left + n && pj.bottom > enemy.top && enemy.right - n > pj.left + n && enemy.bottom > pj.top }
 
   checkCollision() {
     const pj = document.getElementById('personaje').getBoundingClientRect();
     const enemies = document.querySelectorAll('.enemigo');
     const bonus = document.querySelectorAll('.bonus');
 
+    // Obtenemos los enemigos que estan en el html
     enemies.forEach((e, i) => {
       const element = e.getBoundingClientRect();
-      if (this.isCollision(pj, element,e.className.includes('walkEnemigoMale ') ? 10 : 20)) {
+      if (this.isCollision(pj, element, e.className.includes('walkEnemigoMale ') ? 10 : 20)) {
         if (!this.enemiesArray.includes(i)) {
+          // Con este array auxilia vamos a evitar que se ejecute muchas veces el codigo.
           this.enemiesArray.push(i)
           if (e.className.includes('walkEnemigoFemale')) {
             this.stopGameLoop();
@@ -114,13 +124,15 @@ class Games {
           }
         }
       } else {
+        // Limpiamos el array auxiliar
         this.enemiesArray = this.enemiesArray.filter((b) => b !== i);
       }
     })
 
+    // Obtenemos los bonus que estan en el html y verificamos si hay colision 
     bonus.forEach((e, i) => {
       const element = e.getBoundingClientRect();
-      if (this.isCollision(pj, element,10)) {
+      if (this.isCollision(pj, element, 10)) {
         if (!this.bonusArray.includes(i)) {
           this.bonusSound.play();
           this.bonusArray.push(i);
@@ -138,6 +150,7 @@ class Games {
     })
   }
 
+  // Eliminamos los elementos que estan fuera de la pantalla del usuario
   deleteElements() {
     const enemies = document.querySelectorAll('.enemigo')
     const bonus = document.querySelectorAll('.bonus')
@@ -156,6 +169,7 @@ class Games {
     })
   }
 
+  // Eliminamos todos los elementos de la pantalla
   deleteElementsAll() {
     const enemies = document.querySelectorAll('.enemigo')
     const bonus = document.querySelectorAll('.bonus')
@@ -167,6 +181,7 @@ class Games {
     })
   }
 
+  // Generador de enemigos
   generateElements() {
     if (Math.floor(Math.random() * 10) > 5) {
       new Enemigo('female');
